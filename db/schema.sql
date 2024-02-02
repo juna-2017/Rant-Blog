@@ -1,0 +1,2 @@
+DROP DATABASE IF EXISTS ventit_db;
+CREATE DATABASE ventit_db;
