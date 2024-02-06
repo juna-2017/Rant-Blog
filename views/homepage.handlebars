@@ -1,0 +1,14 @@
+<!-- Loop over each topic in the topics array -->
+{{#each topics as |topic|}}
+<div class="row mb-4">
+  <div class="col-md-5">
+    <h3>{{topic.name}}</h3>
+  </div>
+  <div class="col-md-7">
+    <button id="addCommentBtn">Click here to add comment!</button>
+    <p id="userComment" class="hide" >{{comment}}</p>
+  </div>
+</div>
+{{/each}}
+
+<script src="./js/addComment.js"></script>
