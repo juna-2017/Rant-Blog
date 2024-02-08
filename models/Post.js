@@ -26,14 +26,17 @@ Post.init(
             references: {
                 model: 'user',
                 key: 'id',
-            }},
+            }
+        },
         topic_id: {
-                type: DataTypes.INTEGER,
-                references: {
-                    model: 'topic',
-                    key: 'id',
-                }},
-
+            type: DataTypes.INTEGER,
+            references: {
+                model: 'topic',
+                key: 'id',
+            }
+        },
+    },
+    {
         sequelize,
         timestamps: false,
         freezeTableName: true,
