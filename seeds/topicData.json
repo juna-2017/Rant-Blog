@@ -1,14 +1,11 @@
 [
     {
-      "topic_id": "",
-      "topic": "Work"
+      "name": "Work"
     },
     {
-      "topic_id": "",
-      "topic": "Relationships?"
+      "name": "Relationships?"
     },
     {
-      "topic_id": "",
-      "topic": "Government."
+      "name": "Government"
     }
   ]

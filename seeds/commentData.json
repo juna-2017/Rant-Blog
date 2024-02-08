@@ -1,21 +1,21 @@
 [
     {
-      "user_id": "",
-      "name": "Frandina",
-      "topic": "Work",
-      "comment": "I have no work-life balance"
+      "text": "I have no work-life balance",
+      "date_created": "",
+      "topic_id": 1,
+      "user_id": 1
     },
     {
-      "user_id": "",
-      "name": "Juna",
-      "topic": "Relationships?",
-      "comment": "Relationships are hard!"
+      "text": "Relationships are hard!",
+      "date_created": "",
+      "topic_id": 2,
+      "user_id": 2
     },
     {
-      "user_id": "",
-      "name": "Mohamed",
-      "topic": "Government.",
-      "comment": "This government needs to care more about thier people"
+      "text": "This government needs to care more about thier people",
+      "date_created": "",
+      "topic_id": 3,
+      "user_id": 3
     }
   ]
 
