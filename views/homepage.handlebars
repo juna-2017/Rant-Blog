@@ -2,13 +2,20 @@
 {{#each topics as |topic|}}
 <div class="row mb-4">
   <div class="col-md-5">
-    <h3>{{topic.name}}</h3>
+    <h3>
+      <a href="/topic/{{topic.id}}">{{topic.name}}</a></h3>
   </div>
   <div class="col-md-7">
     <button id="addCommentBtn">Click here to add comment!</button>
-    <p id="userComment" class="hide" >{{comment}}</p>
+    <p id="userComment" class="hide" >{{topic.comment}}</p>
   </div>
 </div>
 {{/each}}
 
-<script src="./js/addComment.js"></script>
+<div class="text-center">
+  <p>{{user.comment}}</p>
+  <p>Created by {{username}}</p>
+  <button id="saveBtn">Save</button><button id="submitBtn">Submit</button>
+</div>
+
+<script src="./js/server.js"></script>
