@@ -27,13 +27,6 @@ Comment.init(
         model: 'user',
         key: 'id',
       },
-      topic_id: {
-        type: DataTypes.INTEGER,
-        references: {
-          model: 'topic',
-          key: 'id',
-        }
-      },
       post_id: {
         type: DataTypes.INTEGER,
         references: {
@@ -48,7 +41,7 @@ Comment.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'project',
+    modelName: 'Comment',
   }
 );
 
