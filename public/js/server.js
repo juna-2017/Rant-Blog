@@ -8,4 +8,4 @@ addCommentBtn.addEventListener('click', function(){
 
 submitBtn.addEventListener('click', function(){
     
-})
+});
