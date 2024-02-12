@@ -1,16 +1,10 @@
 const router = require('express').Router();
-const { Post, User, Topic } = require('../../models');
+const { Post, User, Topic, Comment } = require('../../models');
 
 // this route renders all posts related to topic
 router.get('/', async (req, res) => {
     try {
         const postData = await Post.findAll({
-            include: [
-                {
-                    model: User && Topic,
-                    attributes: ['name'],
-                },
-            ],
         });
         const posts = postData.map((post) => post.get({ plain: true }));
 
@@ -25,14 +19,14 @@ router.get('/', async (req, res) => {
 
 router.get('/post/:id', async (req, res) => {
     try {
-        const dbPostData = await Post.findByPk(req.params.id,
+        const dbPostData = await Post.findByPk(req.params.id, {
             include: [
                 {
-                    model: User && Topic,
+                    model: User && Topic && Comment,
                     attributes: ['name'],
                 },
             ],
-        ]);
+        });
 
         const post = dbPostData.get({ plain: true });
 
@@ -42,6 +36,8 @@ router.get('/post/:id', async (req, res) => {
         res.status(500).json(err);
     }
 });
+
+module.exports = router;
 
 
 
