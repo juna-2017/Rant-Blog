@@ -1,12 +1,12 @@
 const User = require('./User');
-const Topic = require('./Topic');
+// const Topic = require('./Topic');
 const Post = require('./Post');
-const Comment = require('./Comment')
+const Comment = require('./Comment');
 
-Post.hasOne(Topic, {
-  foreignKey: 'topic_id',
-  onDelete: 'CASCADE'
-});
+// Post.hasOne(Topic, {
+//   foreignKey: 'topic_id',
+//   onDelete: 'CASCADE'
+// });
 // Topic.belongsTo(Post, {
 //   foreignKey: 'topic_id'
 // });
@@ -31,4 +31,4 @@ Comment.belongsTo(Post, {
   foreignKey: 'post_id'
 });
 
-module.exports = { User, Topic, Post, Comment };
+module.exports = { User, Post, Comment };

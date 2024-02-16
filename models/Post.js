@@ -11,7 +11,11 @@ Post.init(
             primaryKey: true,
             autoIncrement: true,
         },
-        text: {
+        title: {
+            type: DataTypes.STRING,
+            allowNull: false,    
+        },
+        content: {
             type: DataTypes.STRING,
             allowNull: false,
         },
@@ -27,13 +31,13 @@ Post.init(
                 key: 'id',
             }
         },
-        topic_id: {
-            type: DataTypes.INTEGER,
-            references: {
-                model: 'topic',
-                key: 'id',
-            }
-        },
+        // topic_id: {
+        //     type: DataTypes.INTEGER,
+        //     references: {
+        //         model: 'topic',
+        //         key: 'id',
+        //     }
+        // },
     },
     {
         sequelize,

@@ -2,17 +2,17 @@
     {
       "user_id": 3,
       "post_id": 1,
-      "text": "I have no work-life balance"
+      "comment_text": "Even though its hard, "
     },
     {
       "user_id": 1,
       "post_id": 2,
-      "text": "Relationships are hard!"
+      "comment_text": "Relationships are hard!"
     },
     {
       "user_id": 2,
       "post_id": 3,
-      "text": "This government needs to care more about thier people"
+      "comment_text": "This government needs to care more about thier people"
     }
   ]
 

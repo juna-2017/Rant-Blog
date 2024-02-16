@@ -1,14 +1,14 @@
 [
     {
-      "name": "Frandina",
-      "password": "Computer6"
+      "username": "Frandina1",
+      "password": "password1"
     },
     {
-      "name": "Juna",
-      "password": "Computer8"
+      "username": "Juna2",
+      "password": "password2"
     },
     {
-      "name": "Mohamed",
-      "password": "Computer10"
+      "username": "Mohamed3",
+      "password": "password3"
     }
   ]

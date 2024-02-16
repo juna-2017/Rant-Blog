@@ -1,21 +1,16 @@
-<!-- Loop over each topic in the topics array -->
-{{#each topics as |topic|}}
-<div class="row mb-4">
-  <div class="col-md-5">
-    <h3>
-      <a href="/topic/{{topic.id}}">{{topic.name}}</a></h3>
-  </div>
-  <div class="col-md-7">
-    <button id="addCommentBtn">Click here to add comment!</button>
-    <p id="userComment" class="hide" >{{topic.comment}}</p>
-  </div>
-</div>
-{{/each}}
-{{!-- 
-<div class="text-center">
-  <p>{{user.comment}}</p>
-  <p>Created by {{username}}</p>
-  <button id="saveBtn">Save</button><button id="submitBtn">Submit</button>
-</div>
+<section class="container">
+  <h3 class="post-name">Vent yourself away!</h3>
+  <section class="flex-row justify-center">
+    {{#each posts as |post|}}
+    <section class="card">
+      {{!-- <a href="/post/{{id}}"> --}}
+        <header>{{post.title}}</header>
 
-<script src="./js/server.js"></script> --}}
+        <div class="card-body">
+          <p>{{post.content}}</p>
+        </div>
+      </a>
+    </section>
+    {{/each}}
+  </section>
+</section>

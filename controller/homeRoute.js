@@ -1,72 +1,38 @@
 const router = require('express').Router();
-const { Topic, Post, Comment } = require('../models');
+const { Post, User, Comment } = require('../models');
 
-// // this is rendering all topics to homepage
-// router.get('/', async (req, res) => {
-//     try {
-//         const topicData = await Topic.findAll();
-
-//         const topics = topicData.map((topic) => topic.get({ plain: true }));
-
-//         res.render('homepage', { topics });
-//     } catch (err) {
-//         res.status(500).json(err);
-//     }
-// });
-
-// // this route gets the topic associated with that id # along with comments linked to the topic
-// router.get('/topic/:id', async (req, res) => {
-//     try {
-//         const topicData = await Topic.findByPk(req.params.id, {
-//             include: [
-//                 {
-//                     model: Comment,
-//                     attributes: ['text'],
-//                 },
-//             ],
-//         });
-
-//         const topic = topicData.get({ plain: true });
-
-//         res.render('homepage', { ...topic, });
-//     } catch (err) {
-//         res.status(500).json(err);
-//     }
-// });
-
-
-
-// module.exports = router;
-
-// this route renders all topics to homepage once user logs in
+// this route renders all posts to homepage once user logs in
 router.get('/', async (req, res) => {
     try {
-        // Get all projects and JOIN with user data
-        const topicData = await Topic.findAll(
-            // include: [
-            //   {
-            //     model: User,
-            //     attributes: ['name'],
-            //   },
-            // ],
-        );
+        const postData = await Post.findAll({
+            attributes: ['id', 'title', 'content', 'date_created'],
+            include: [
+              {
+                model: Comment,
+                attributes: ['id', 'comment_text', 'date_created', 'post_id', 'user_id'],
+                
+                include: {model: User, attributes: ['username']},
+              },
+            ],
+    });
 
         // Serialize data so the template can read it
-        const topics = topicData.map((topic) => topic.get({ plain: true }));
+        const posts = postData.map((post) => post.get({ plain: true }));
 
-        // Pass serialized data and session flag into template
+        // Pass posts into homepage template
         res.render('homepage', {
-            topics,
+            posts,
             logged_in: req.session.logged_in
         });
     } catch (err) {
+        console.log(err);
         res.status(500).json(err);
     }
 });
 
 
 // this route should render the topic individually
-router.get('/topic/:id', async (req, res) => {
+router.get('/posts/:id', async (req, res) => {
     try {
         const topicData = await Topic.findByPk(req.params.id,
             // include: [
@@ -89,12 +55,11 @@ router.get('/topic/:id', async (req, res) => {
 });
 
 router.get('/login', (req, res) => {
-    // If the user is already logged in, redirect the request to another route
+    // If the user is already logged in, redirect the request to homepage
     if (req.session.logged_in) {
-        res.redirect('/homepage');
+        res.redirect('/');
         return;
     }
-
     res.render('login');
 });
 
@@ -102,5 +67,20 @@ router.get('/login', (req, res) => {
 
 
 
+
+router.get('/posts', async (req, res) => {
+    try {
+        const postData = await Post.findAll({
+        });
+        const posts = postData.map((post) => post.get({ plain: true }));
+
+        res.render('posts', {
+            posts,
+            logged_in: req.session.logged_in
+        });
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
 
 module.exports = router;

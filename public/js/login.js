@@ -15,7 +15,7 @@ const loginFormHandler = async (event) => {
   
       if (response.ok) {
         // If successful, redirect the browser to the main page showing the posts
-        document.location.replace('/');
+        document.location.replace('/posts');
       } else {
         alert(response.statusText);
       }
@@ -24,16 +24,14 @@ const loginFormHandler = async (event) => {
   
   const signupFormHandler = async (event) => {
     event.preventDefault();
-  
-    const firstName = document.querySelector('#first-name-signup').value.trim();
-    const lastName = document.querySelector('#last-name-signup').value.trim();
+
     const username = document.querySelector('#user-signup').value.trim();
     const password = document.querySelector('#password-signup').value.trim();
   
-    if (firstName && lastName && username && password) {
+    if (username && password) {
       const response = await fetch('/api/users', {
         method: 'POST',
-        body: JSON.stringify({ firstName, lastName, username, password }),
+        body: JSON.stringify({ username, password }),
         headers: { 'Content-Type': 'application/json' },
       });
   
