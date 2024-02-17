@@ -1,0 +1,17 @@
+/* VENT-IT */
+#title {color: white;
+ font-size: 128px;
+ font-family: Playfair Display;
+ font-weight: 400;
+ word-wrap: break-word}
+
+ a {
+    color: white;
+    text-decoration: none;
+ }
+/* Unleash. Release. Exhale. */
+#sub {color: white;
+ font-size: 32px;
+ font-family: Playfair Display;
+ font-weight: 400;
+ word-wrap: break-word}
