@@ -15,7 +15,7 @@ const loginFormHandler = async (event) => {
   
       if (response.ok) {
         // If successful, redirect the browser to the main page showing the posts
-        document.location.replace('/posts');
+        document.location.replace('homepage');
       } else {
         alert(response.statusText);
       }
@@ -36,7 +36,7 @@ const loginFormHandler = async (event) => {
       });
   
       if (response.ok) {
-        document.location.replace('/posts');
+        document.location.replace('homepage');
       } else {
         alert(response.statusText);
       }
