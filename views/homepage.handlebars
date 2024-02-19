@@ -1,16 +1,10 @@
-<section class="container">
-  <h3 class="post-name">Vent yourself away!</h3>
-  <section class="flex-row justify-center">
-    {{#each posts as |post|}}
-    <section class="card">
-      {{!-- <a href="/post/{{id}}"> --}}
-        <header>{{post.title}}</header>
-
-        <div class="card-body">
-          <p>{{post.content}}</p>
-        </div>
-      </a>
-    </section>
-    {{/each}}
-  </section>
+<section class="posts">
+  {{#each posts as |post|}}
+  <div class="card">
+    <h3 class="card-header"><a href="/post/{{id}}"> {{title}}</a></h3>
+    <p>Posted by {{user.username}} on {{format_date date_created}} </p>
+  </div>
+  <p class="card-body">{{content}}</p>
+  </div>
+  {{/each}}
 </section>
